@@ -1,9 +1,21 @@
-import Products from './components/Products/products'; 
 import React from 'react';
+import './App.scss';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import {Home, CategoryProduct, ProductSingle, Cart, Search} from './pages/index';
+import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Footer from "./components/Footer/Footer";
+
+
+
 const App = () => {
   return (
-    <div>
-      <Products/>
+    <div className="App">
+      
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      
     </div>
   );
 }
