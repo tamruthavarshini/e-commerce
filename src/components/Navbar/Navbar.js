@@ -41,7 +41,7 @@ const Navbar = () => {
                 {
                   categories.slice(0,8).map((category,idx)=>(
                     <li className='nav-item no-wrap' key={idx}>
-                    <Link to ={`category/${category}`} className='nav-link text-capitalize'>{category}</Link>
+                    <Link to ={`category/${category}`} className='nav-link text-capitalize'>{category.replace("-", " ")}</Link>
                   </li>
                   ))
                 }
