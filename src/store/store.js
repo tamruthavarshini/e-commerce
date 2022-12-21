@@ -1,5 +1,5 @@
 import { configureStore, ConfigureStore } from "@reduxjs/toolkit";
-import sidebarReducer from "./sidebarSlice";
+import sidebarReducer from "./slidebarSlice";
 
 const store = configureStore ({
     reducer :{

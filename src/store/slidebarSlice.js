@@ -9,10 +9,12 @@ const sidebarSlice = createSlice({
     initialState,
     reducers: {
         setSidebarOn: (state) => {
+           
             state.isSidebarOn = true;
         },
 
         setSidebarOff: (state) => {
+          
             state.isSidebarOn = false;
         }
     },
