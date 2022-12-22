@@ -1,26 +1,39 @@
-import React from 'react';
 import './App.scss';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import {Home, CategoryProduct, ProductSingle, Cart, Search} from './pages/index';
+// react router v6
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+// pages
+import {Home, CategoryProduct, ProductSingle, Cart, Search} from "./pages/index";
+// components
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Footer from "./components/Footer/Footer";
-import store from './store/store';
-import { Provider } from 'react-redux';
+import store from "./store/store";
+import {Provider} from "react-redux";
 
-
-const App = () => {
+function App() {
   return (
     <div className="App">
-         <Provider store ={store}>
+      <Provider store = {store}>
         <BrowserRouter>
           <Header />
-          <Sidebar/>
+          <Sidebar />
+
           <Routes>
-            <Route path="/" element={<Home/>}/>
+            {/* home page route */}
+            <Route path = "/" element = {<Home />} />
+            {/* single product route */}
+            <Route path = "/product/:id" element = {<ProductSingle />} />
+            {/* category wise product listing route */}
+            <Route path = "/category/:category" element = {<CategoryProduct />} />
+            {/* cart */}
+            <Route path = "/cart" element = {<Cart />} />
+            {/* searched products */}
+            <Route path = "/search/:searchTerm" element = {<Search />} />
           </Routes>
+
+          <Footer />
         </BrowserRouter>
-        </Provider>
+      </Provider>
     </div>
   );
 }
