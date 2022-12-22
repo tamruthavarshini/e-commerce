@@ -2,12 +2,14 @@ import { configureStore, ConfigureStore } from "@reduxjs/toolkit";
 import sidebarReducer from "./slidebarSlice";
 import categoryReducer from "./categorySlice";
 import productReducer from "./productSlice";
+import cartReducer from "./cartSlice";
 
 const store = configureStore ({
     reducer :{
         sidebar: sidebarReducer,
         category: categoryReducer,
-        product:productReducer
+        product:productReducer,
+        cart: cartReducer
     }
             
 }
