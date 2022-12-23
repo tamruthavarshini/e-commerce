@@ -31,7 +31,7 @@ const searchSlice = createSlice({
 export const fetchAsyncSearchProduct = createAsyncThunk('product-search/fetch',async(searchTerm) => {
     const response =await fetch(`${BASE_URL}products/search?q=${searchTerm}`);
     const data=await response.json();
-    return data.product;
+    return data.products;
 }
 );
 
