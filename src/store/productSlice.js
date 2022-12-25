@@ -7,11 +7,20 @@ const initialState ={
     productsStatus: STATUS.IDLE,
     productSingle:[],
     productSingleStatus:STATUS.IDLE
+    
   }
   const productSlice = createSlice({
     name:'product',
     initialState,
-    reducers:{},
+    reducers:{
+        imageChangeHandler: (state,action) =>
+        {
+          const x= action.payload;
+          const a= state.productSingle.images[x];
+          state.productSingle.images[x] =  state.productSingle.images[0];
+          state.productSingle.images[0] = a;
+        }
+    },
     extraReducers:(builder) =>{
         builder
         .addCase(fetchAsyncProducts.pending,(state,action) =>{
@@ -55,8 +64,10 @@ export const fetchAsyncProductSingle = createAsyncThunk('product-single/fetch', 
     return data;
 });
 
+
 export const getAllProducts = (state) => state.product.products;
 export const getAllProductsStatus = (state) => state.product.productsStatus;
 export const getProductSingle = (state) => state.product.productSingle;
 export const getSingleProductStatus = (state) => state.product.productSingleStatus;
 export default productSlice.reducer;
+export const {imageChangeHandler} = productSlice.actions;

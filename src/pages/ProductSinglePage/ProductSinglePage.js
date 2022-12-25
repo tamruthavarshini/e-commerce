@@ -8,6 +8,7 @@ import Loader from "../../components/Loader/Loader";
 import {formatPrice} from "../../utils/helpers";
 import { addToCart, getCartMessageStatus, setCartMessageOff, setCartMessageOn } from '../../store/cartSlice';
 import CartMessage from "../../components/CartMessage/CartMessage";
+import { imageChangeHandler } from '../../store/productSlice';
 
 const ProductSinglePage = () => {
   const {id} = useParams();
@@ -56,7 +57,7 @@ const ProductSinglePage = () => {
     dispatch(addToCart({...product, quantity: quantity, totalPrice, discountedPrice}));
     dispatch(setCartMessageOn(true));
   }
-
+ 
 
   return (
     <main className='py-5 bg-whitesmoke'>
@@ -66,29 +67,29 @@ const ProductSinglePage = () => {
             <div className='product-single-l'>
               <div className='product-img'>
                 <div className='product-img-zoom'>
-                  <img src = {product?(product.images ? product.images[0] : "") : ""} alt = "" className='img-cover' />
+                  <img src = {product?(product.images ? product.images[0] : "") : ""} alt = "" className='img-cover' id='image' />
                 </div>
 
                 <div className='product-img-thumbs flex align-center my-2'>
                   <div className='thumb-item'>
                     <img src = {
                       product ? (product.images ? product.images[1] : "") : ""
-                    } alt = "" className='img-cover' />
+                      } alt = "" className='img-cover'  onClick={() => dispatch(imageChangeHandler(1))}/>
                   </div>
                   <div className='thumb-item'>
                     <img src = {
                       product ? (product.images ? product.images[2] : "") : ""
-                    } alt = "" className='img-cover' />
+                    } alt = "" className='img-cover' onClick={() => dispatch(imageChangeHandler(2))}/>
                   </div>
                   <div className='thumb-item'>
                     <img src = {
                       product ? (product.images ? product.images[3] : "") : ""
-                    } alt = "" className='img-cover' />
+                    } alt = "" className='img-cover'  onClick={() => dispatch(imageChangeHandler(3))}/>
                   </div>
-                  <div className='thumb-item'>
+                  <div className='thumb-item' >
                     <img src = {
                       product ? (product.images ? product.images[4] : "") : ""
-                    } alt = "" className='img-cover' />
+                    } alt = "" className='img-cover'  onClick={() => dispatch(imageChangeHandler(4))}/>
                   </div>
                 </div>
               </div>
